@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://jc3w602ha0tq"]
+[gd_scene load_steps=9 format=3 uid="uid://jc3w602ha0tq"]
 
 [ext_resource type="Script" uid="uid://nse6hmkv1nyu" path="res://Scenes/Game/game.gd" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://bvcjc5vjxn78v" path="res://Sprites/aim.png" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://ccxi2so5h3jbd" path="res://Scripts/aim.gd" id="2_wrm1d"]
 [ext_resource type="Script" uid="uid://ft8fqon6sls4" path="res://Scripts/enemy.gd" id="4_3dryh"]
+[ext_resource type="Texture2D" uid="uid://wfk0xgx4c554" path="res://icon.svg" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://bf1pulsdnklvs" path="res://Scenes/reload.tscn" id="5_wowpa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebmjs"]
@@ -27,19 +28,29 @@ texture_filter = 1
 scale = Vector2(3.58, 3.58)
 texture = ExtResource("2_qxrlw")
 
-[node name="Enemy" type="Area2D" parent="."]
+[node name="Enemy" type="Area2D" parent="." groups=["enemy"]]
 position = Vector2(244, 265)
 script = ExtResource("4_3dryh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+modulate = Color(0.9523234, 0, 0.1151075, 1)
+position = Vector2(0.49999332, 2.9999962)
+scale = Vector2(0.8046874, 1.96875)
+texture = ExtResource("5_i6g32")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("CapsuleShape2D_qxrlw")
 
 [node name="Reload" parent="." instance=ExtResource("5_wowpa")]
 
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: "
+
 [connection signal="area_entered" from="Enemy" to="Enemy" method="_on_area_entered"]
 [connection signal="area_exited" from="Enemy" to="Enemy" method="_on_area_exited"]
+[connection signal="is_shot" from="Enemy" to="." method="_on_enemy_is_shot"]
 [connection signal="left_action" from="Reload" to="." method="_on_reload_left_action"]
 [connection signal="middle_action" from="Reload" to="." method="_on_reload_middle_action"]
 [connection signal="right_action" from="Reload" to="." method="_on_reload_right_action"]
