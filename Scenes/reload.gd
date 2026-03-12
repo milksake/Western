@@ -4,7 +4,7 @@ extends Node2D
 @export var bullets : int = 6
 @export var time : float = 0.05
 
-var space : float = 360.0 / bullets
+@onready var space : float = 360.0 / bullets
 var pos = 0
 
 var can_move : bool = true
