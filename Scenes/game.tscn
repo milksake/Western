@@ -1,6 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://jc3w602ha0tq"]
+[gd_scene load_steps=8 format=3 uid="uid://jc3w602ha0tq"]
 
 [ext_resource type="Script" uid="uid://nse6hmkv1nyu" path="res://Scenes/Game/game.gd" id="1_ebmjs"]
+[ext_resource type="Texture2D" uid="uid://bvcjc5vjxn78v" path="res://Sprites/aim.png" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://ccxi2so5h3jbd" path="res://Scripts/aim.gd" id="2_wrm1d"]
+[ext_resource type="Script" uid="uid://ft8fqon6sls4" path="res://Scripts/enemy.gd" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://bf1pulsdnklvs" path="res://Scenes/reload.tscn" id="5_wowpa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebmjs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxrlw"]
+radius = 53.0
+height = 252.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ebmjs")
+
+[node name="Aim" type="Area2D" parent="." groups=["player"]]
+position = Vector2(650, 332)
+script = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aim"]
+shape = SubResource("CircleShape2D_ebmjs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Aim"]
+texture_filter = 1
+scale = Vector2(3.58, 3.58)
+texture = ExtResource("2_qxrlw")
+
+[node name="Enemy" type="Area2D" parent="."]
+position = Vector2(244, 265)
+script = ExtResource("4_3dryh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("CapsuleShape2D_qxrlw")
+
+[node name="Reload" parent="." instance=ExtResource("5_wowpa")]
+
+[connection signal="area_entered" from="Enemy" to="Enemy" method="_on_area_entered"]
+[connection signal="area_exited" from="Enemy" to="Enemy" method="_on_area_exited"]
+[connection signal="left_action" from="Reload" to="." method="_on_reload_left_action"]
+[connection signal="middle_action" from="Reload" to="." method="_on_reload_middle_action"]
+[connection signal="right_action" from="Reload" to="." method="_on_reload_right_action"]
