@@ -19,8 +19,37 @@ signal right_action(state : int)
 
 var state : Array[int]
 
+func update():
+	for i in range(bullets):
+		if (state[i] == 0):
+			barrel.get_child(i).visible = false
+		else:
+			barrel.get_child(i).visible = true
+
+func dispose(bullet):
+	if bullet < 0:
+		return
+	state[bullet] = 0
+	update()
+
+func reload(bullet):
+	if bullet >= 0:
+		return
+	state[-bullet-1] = 1
+	update()
+
 func _ready() -> void:
 	state.resize(bullets)
+	var dir : Vector2 = Vector2.UP
+	for i in range(bullets):
+		var b = Sprite2D.new()
+		b.texture = load("res://icon.svg")
+		b.position = dir * 50
+		b.scale = Vector2(0.25, 0.25)
+		b.visible = false
+		barrel.add_child(b)
+		
+		dir = dir.rotated(-deg_to_rad(space))
 
 func move(dir : int):
 	var t = create_tween()
@@ -45,17 +74,17 @@ func _process(_delta: float) -> void:
 			buff += 1
 	if Input.is_action_just_pressed("click"):
 		if can_move:
-			emit_signal("left_action", state[pos])
+			emit_signal("left_action", -pos-1 if state[pos] == 0 else pos)
 		else:
 			buff_left = true
 	if Input.is_action_just_pressed("middleclick"):
 		if can_move:
-			emit_signal("middle_action", state[pos])
+			emit_signal("middle_action", -pos-1 if state[pos] == 0 else pos)
 		else:
 			buff_middle = true
 	if Input.is_action_just_pressed("anticlick"):
 		if can_move:
-			emit_signal("right_action", state[pos])
+			emit_signal("right_action", -pos-1 if state[pos] == 0 else pos)
 		else:
 			buff_right = true
 
@@ -69,21 +98,22 @@ func reactivate():
 	else:
 		can_move = true
 		if buff_left:
-			emit_signal("left_action")
+			emit_signal("left_action", -pos-1 if state[pos] == 0 else pos)
 			buff_left = false
 		if buff_right:
-			emit_signal("right_action")
+			emit_signal("right_action", -pos-1 if state[pos] == 0 else pos)
 			buff_right = false
 		if buff_middle:
-			emit_signal("middle_action")
+			emit_signal("middle_action", -pos-1 if state[pos] == 0 else pos)
 			buff_middle = false
-
 
 func _on_left_action(state : int) -> void:
 	print("left", state)
 
 func _on_middle_action(state : int) -> void:
+	dispose(state)
 	print("middle", state)
 
 func _on_right_action(state : int) -> void:
+	reload(state)
 	print("right", state)
