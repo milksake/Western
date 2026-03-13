@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf1pulsdnklvs"]
 
-[ext_resource type="Script" uid="uid://bxa6ppd20xfl" path="res://Scenes/reload.gd" id="1_gdjdx"]
+[ext_resource type="Script" uid="uid://bxa6ppd20xfl" path="res://Scripts/reload.gd" id="1_gdjdx"]
 [ext_resource type="Texture2D" uid="uid://wfk0xgx4c554" path="res://icon.svg" id="2_clnww"]
 
 [node name="Reload" type="Node2D"]

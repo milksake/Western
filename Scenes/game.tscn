@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://jc3w602ha0tq"]
+[gd_scene load_steps=10 format=3 uid="uid://jc3w602ha0tq"]
 
-[ext_resource type="Script" uid="uid://nse6hmkv1nyu" path="res://Scenes/Game/game.gd" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://nse6hmkv1nyu" path="res://Scripts/game.gd" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://bvcjc5vjxn78v" path="res://Sprites/aim.png" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://ccxi2so5h3jbd" path="res://Scripts/aim.gd" id="2_wrm1d"]
 [ext_resource type="Script" uid="uid://ft8fqon6sls4" path="res://Scripts/enemy.gd" id="4_3dryh"]
 [ext_resource type="Texture2D" uid="uid://wfk0xgx4c554" path="res://icon.svg" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://bf1pulsdnklvs" path="res://Scenes/reload.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://ymfuolulpcmf" path="res://Scenes/rhythm.tscn" id="7_1l0tm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebmjs"]
 
@@ -48,9 +49,14 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Score: "
 
+[node name="Rhythm" parent="." instance=ExtResource("7_1l0tm")]
+bpm = 110.0
+off = 0.32
+
 [connection signal="area_entered" from="Enemy" to="Enemy" method="_on_area_entered"]
 [connection signal="area_exited" from="Enemy" to="Enemy" method="_on_area_exited"]
 [connection signal="is_shot" from="Enemy" to="." method="_on_enemy_is_shot"]
 [connection signal="left_action" from="Reload" to="." method="_on_reload_left_action"]
 [connection signal="middle_action" from="Reload" to="." method="_on_reload_middle_action"]
 [connection signal="right_action" from="Reload" to="." method="_on_reload_right_action"]
+[connection signal="beat" from="Rhythm" to="." method="_on_rhythm_beat"]
