@@ -65,7 +65,7 @@ func beat_sprite():
 	var tween = create_tween()
 	tween.tween_property(barrel, "scale", Vector2(0.8, 0.8), 0.1)
 	tween.tween_property(barrel, "scale", Vector2(1.1, 1.1), 0.1)
-	move(1)
+	#move(1)
 	pass
 
 func _process(_delta: float) -> void:

@@ -13,18 +13,9 @@ func _ready():
 	assert(2 * window_ok < beatDuration)
 	$Player.play()
 
-var lastBeat = -1
+var lastBeat = 0
 
 var nextTargetTime = 0
-
-func play_click_on_beat():
-	var beat_time = (lastBeat + 1) * beatDuration
-	var delay = beat_time  - getTime()
-	if delay < 0:
-		delay = 0
-	await get_tree().create_timer(delay).timeout
-	$AudioStreamPlayer.play(0)
-	pass
 
 func updateTargetTime():
 	nextTargetTime += beatDuration
@@ -42,7 +33,7 @@ func _process(_delta):
 	if lastBeat < currBeat:
 		emit_signal("beat")
 		lastBeat = currBeat
-		play_click_on_beat()
+		$AudioStreamPlayer.play(0)
 	
 	if time > nextTargetTime + window_ok:
 		updateTargetTime()
