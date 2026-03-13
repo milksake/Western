@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bf1pulsdnklvs"]
 
 [ext_resource type="Script" uid="uid://bxa6ppd20xfl" path="res://Scripts/reload.gd" id="1_gdjdx"]
-[ext_resource type="Texture2D" uid="uid://wfk0xgx4c554" path="res://icon.svg" id="2_clnww"]
+[ext_resource type="Texture2D" uid="uid://dg1cnfrwxhol3" path="res://Sprites/New Piskel (1).png" id="2_gdjdx"]
 
 [node name="Reload" type="Node2D"]
 script = ExtResource("1_gdjdx")
 
 [node name="Barrel" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(580, 306)
-texture = ExtResource("2_clnww")
+texture = ExtResource("2_gdjdx")
 
 [connection signal="left_action" from="." to="." method="_on_left_action"]
 [connection signal="middle_action" from="." to="." method="_on_middle_action"]

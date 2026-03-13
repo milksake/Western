@@ -43,9 +43,9 @@ func _ready() -> void:
 	var dir : Vector2 = Vector2.UP
 	for i in range(bullets):
 		var b = Sprite2D.new()
-		b.texture = load("res://icon.svg")
-		b.position = dir * 50
-		b.scale = Vector2(0.25, 0.25)
+		b.texture = load("res://Sprites/bullet.png")
+		b.position = dir * 40
+		b.scale = Vector2(1.1, 1.1)
 		b.visible = false
 		barrel.add_child(b)
 		
@@ -60,6 +60,13 @@ func move(dir : int):
 	pos += dir
 	pos += bullets
 	pos %= bullets
+
+func beat_sprite():
+	var tween = create_tween()
+	tween.tween_property(barrel, "scale", Vector2(0.8, 0.8), 0.1)
+	tween.tween_property(barrel, "scale", Vector2(1.1, 1.1), 0.1)
+	move(1)
+	pass
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("roll_up"):

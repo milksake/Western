@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ymfuolulpcmf"]
+[gd_scene load_steps=4 format=3 uid="uid://ymfuolulpcmf"]
 
 [ext_resource type="Script" uid="uid://bxk37uiof2iwk" path="res://Scripts/rhythm.gd" id="1_43wq1"]
 [ext_resource type="AudioStream" uid="uid://df41axcktll5m" path="res://Assets/Komiku_-_08_-_Un_dsert.mp3" id="2_n64c0"]
+[ext_resource type="AudioStream" uid="uid://byjtyqefmcgk3" path="res://SFX/bang.mp3" id="3_n64c0"]
 
 [node name="Rhythm" type="Node2D"]
 script = ExtResource("1_43wq1")
-bpm = null
-off = null
 
 [node name="Player" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_n64c0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n64c0")

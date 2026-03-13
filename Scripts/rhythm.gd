@@ -3,7 +3,7 @@ class_name Rhythm
 
 @export var bpm : float = 110
 @export var off : float = 0.32
-@export var window_ok : float = 0.09
+@export var window_ok : float = 0.1
 @export var window_great : float = 0.045
 @onready var beatDuration = 60.0 / bpm
 
@@ -17,6 +17,15 @@ var lastBeat = -1
 
 var nextTargetTime = 0
 
+func play_click_on_beat():
+	var beat_time = (lastBeat + 1) * beatDuration
+	var delay = beat_time  - getTime()
+	if delay < 0:
+		delay = 0
+	await get_tree().create_timer(delay).timeout
+	$AudioStreamPlayer.play(0)
+	pass
+
 func updateTargetTime():
 	nextTargetTime += beatDuration
 
@@ -28,11 +37,12 @@ func getTime():
 
 func _process(_delta):
 	var time = getTime()
-	var currBeat : int = (time + off) / beatDuration
+	var currBeat : int = (time) / beatDuration
 	
 	if lastBeat < currBeat:
 		emit_signal("beat")
 		lastBeat = currBeat
+		play_click_on_beat()
 	
 	if time > nextTargetTime + window_ok:
 		updateTargetTime()

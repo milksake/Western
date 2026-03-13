@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvux6yhlypkq1"]
+
+[ext_resource type="Script" uid="uid://ft8fqon6sls4" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://61ebymaldqsd" path="res://Sprites/villain.png" id="2_afpow"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxrlw"]
+radius = 22.0
+height = 184.0
+
+[sub_resource type="Animation" id="Animation_1f0kj"]
+resource_name = "is_hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333337),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_afpow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_287tu"]
+_data = {
+&"RESET": SubResource("Animation_afpow"),
+&"is_hurt": SubResource("Animation_1f0kj")
+}
+
+[sub_resource type="Gradient" id="Gradient_1f0kj"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_afpow"]
+gradient = SubResource("Gradient_1f0kj")
+fill = 1
+fill_from = Vector2(0.51282054, 0.4871795)
+fill_to = Vector2(0.8247863, 0.1923077)
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_1f0kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0.49999332, 2.9999962)
+texture = ExtResource("2_afpow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 31)
+shape = SubResource("CapsuleShape2D_qxrlw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_287tu")
+}
+
+[node name="Shoot" type="TextureRect" parent="."]
+visible = false
+offset_left = -24.0
+offset_top = 9.0
+offset_right = 40.0
+offset_bottom = 73.0
+texture = SubResource("GradientTexture2D_afpow")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = -96.0
+offset_right = 48.0
+offset_bottom = -51.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

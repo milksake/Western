@@ -4,12 +4,23 @@ extends Node2D
 @onready var aim: Area2D = $Aim
 @onready var rhythm : Rhythm = $Rhythm
 
+@export var enemies: Array[Area2D]
+
 var score : int = 0
 func _ready() -> void:
+	for enemy in enemies:
+		enemy.shots_player.connect(damage_player)
 	pass
 
+func damage_player():
+	print("Player has been damaged")
+	score -= 100
+	$Label.text = str("Score: ", score)
+
 func _process(delta: float) -> void:
+	
 	pass
+
 
 func _on_reload_left_action(state: int) -> void:
 	var x = rhythm.tryBeat()
@@ -39,4 +50,10 @@ func _on_reload_right_action(state: int) -> void:
 func _on_enemy_is_shot(points: Variant) -> void:
 	score += points
 	$Label.text = str("Score: ", score)
+	pass # Replace with function body.
+
+func _on_rhythm_beat() -> void:
+	reload.beat_sprite()
+	for enemy in enemies:
+		enemy.beat()
 	pass # Replace with function body.
