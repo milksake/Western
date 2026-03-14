@@ -11,6 +11,8 @@ texture_filter = 1
 position = Vector2(580, 306)
 texture = ExtResource("2_gdjdx")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="left_action" from="." to="." method="_on_left_action"]
 [connection signal="middle_action" from="." to="." method="_on_middle_action"]
 [connection signal="right_action" from="." to="." method="_on_right_action"]

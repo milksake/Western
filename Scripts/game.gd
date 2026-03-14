@@ -16,11 +16,16 @@ func damage_player():
 	print("Player has been damaged")
 	score -= 100
 	$Label.text = str("Score: ", score)
+	shake_camera()
 
 func _process(delta: float) -> void:
 	
 	pass
 
+func shake_camera():
+	var tween = create_tween()
+	tween.tween_property($Camera2D, "offset", Vector2(randf_range(-20,20), randf_range(-20,20)), 0.05)
+	tween.tween_property($Camera2D, "offset", Vector2.ZERO, 0.05)
 
 func _on_reload_left_action(state: int) -> void:
 	var x = rhythm.tryBeat()

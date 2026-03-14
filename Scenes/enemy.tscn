@@ -1,26 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvux6yhlypkq1"]
+[gd_scene load_steps=10 format=3 uid="uid://dvux6yhlypkq1"]
 
 [ext_resource type="Script" uid="uid://ft8fqon6sls4" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://61ebymaldqsd" path="res://Sprites/villain.png" id="2_afpow"]
+[ext_resource type="AudioStream" uid="uid://cy7mm780nahaf" path="res://SFX/distance_shot.mp3" id="3_afpow"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxrlw"]
 radius = 22.0
 height = 184.0
-
-[sub_resource type="Animation" id="Animation_1f0kj"]
-resource_name = "is_hurt"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333337),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_afpow"]
 length = 0.001
@@ -35,6 +21,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1f0kj"]
+resource_name = "is_hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333337),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_287tu"]
@@ -84,6 +85,9 @@ offset_right = 48.0
 offset_bottom = -51.0
 theme_override_font_sizes/font_size = 32
 text = "1"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_afpow")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
