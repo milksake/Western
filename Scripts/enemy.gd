@@ -11,6 +11,8 @@ signal shots_player()
 @export var delay_spawn_beats : int = 20
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var consecutive : Array[int]
+
 var current_beat : int = 1
 var spawn_counter := 0
 # Called when the node enters the scene tree for the first time.
@@ -62,9 +64,11 @@ func _process(delta: float) -> void:
 	
 	pass
 
-func take_damage(damage: int):
+func take_damage(beatt : int):
 	if is_aimed:
-		health -= damage
+		if not (consecutive.is_empty() or consecutive[-1] == beatt-1):
+			consecutive.clear()
+		consecutive.push_back(beatt)
 		sprite_2d.modulate = Color(4, 4, 4, 1.0)
 
 		await get_tree().create_timer(0.3).timeout
@@ -90,6 +94,7 @@ func _on_area_exited(area: Area2D) -> void:
 	pass # Replace with function body.
 
 func check_if_dead() -> bool:
-	if health < 0:
+	print(consecutive, health)
+	if len(consecutive) >= health:
 		return true
 	return false

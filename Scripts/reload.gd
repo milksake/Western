@@ -115,9 +115,6 @@ func reactivate():
 			emit_signal("middle_action", -pos-1 if state[pos] == 0 else pos)
 			buff_middle = false
 
-func _on_left_action(state : int) -> void:
-	pass
-	#print("left", state)
 
 func _on_middle_action(state : int) -> void:
 	pass

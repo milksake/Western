@@ -17,14 +17,23 @@ var lastBeat = 0
 
 var nextTargetTime = 0
 
+var lastGetBeat = -1
+
+var nextTargetTimeCnt = 0
+
 func updateTargetTime():
+	lastGetBeat = nextTargetTimeCnt
 	nextTargetTime += beatDuration
+	nextTargetTimeCnt += 1
 
 func getTime():
 	var time = $Player.get_playback_position() + AudioServer.get_time_since_last_mix()
 	time -= AudioServer.get_output_latency()
 	time += off
 	return time
+
+func getBeat():
+	return lastGetBeat
 
 func _process(_delta):
 	var time = getTime()

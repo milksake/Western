@@ -11,10 +11,23 @@ const STAR = preload("uid://b35j4t3r82npu")
 
 var health : int = 5
 
+var sprite1 = preload("res://Sprites/Enemy/Enemy.png")
+var sprite2 = preload("res://Sprites/Enemy/Enemy2.png")
+var sprite3 = preload("res://Sprites/Enemy/Enemy3.png")
+
 func _ready() -> void:
 	$Label2.visible = false
 	for enemy in enemies:
 		enemy.shots_player.connect(damage_player)
+		if name == "FirstLevel":
+			enemy.sprite_2d.texture = sprite1
+			enemy.health = 1
+		elif name == "SecondLevel":
+			enemy.sprite_2d.texture = sprite2
+			enemy.health = 2
+		else:
+			enemy.sprite_2d.texture = sprite3
+			enemy.health = 3
 	for i in range(health):
 		var tex := TextureRect.new()
 		tex.texture = STAR
@@ -70,7 +83,7 @@ func _on_reload_left_action(state: int) -> void:
 			$Aim/SoundShoot.play(0)
 			var overlapping_areas = aim.get_overlapping_areas()
 			if overlapping_areas and overlapping_areas[0].has_method("take_damage"):
-				overlapping_areas[0].take_damage(20 if x == 2 else 10)
+				overlapping_areas[0].take_damage(rhythm.getBeat())
 		else:
 			print("No bullet")
 	else:
