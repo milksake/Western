@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf1pulsdnklvs"]
+[gd_scene load_steps=5 format=3 uid="uid://bf1pulsdnklvs"]
 
 [ext_resource type="Script" uid="uid://bxa6ppd20xfl" path="res://Scripts/reload.gd" id="1_gdjdx"]
 [ext_resource type="Texture2D" uid="uid://dg1cnfrwxhol3" path="res://Sprites/New Piskel (1).png" id="2_gdjdx"]
+[ext_resource type="AudioStream" uid="uid://nb14c4s6tahc" path="res://SFX/spin.mp3" id="3_clnww"]
+[ext_resource type="AudioStream" uid="uid://3nik8injp0de" path="res://SFX/reload.mp3" id="4_c6wfq"]
 
 [node name="Reload" type="Node2D"]
 script = ExtResource("1_gdjdx")
@@ -11,7 +13,12 @@ texture_filter = 1
 position = Vector2(580, 306)
 texture = ExtResource("2_gdjdx")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Barrel2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_clnww")
+volume_db = -20.0
+
+[node name="Reload" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c6wfq")
 
 [connection signal="left_action" from="." to="." method="_on_left_action"]
 [connection signal="middle_action" from="." to="." method="_on_middle_action"]

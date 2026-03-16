@@ -36,6 +36,7 @@ func reload(bullet):
 	if bullet >= 0:
 		return
 	state[-bullet-1] = 1
+	$Reload.play(0)
 	update()
 
 func _ready() -> void:
@@ -56,7 +57,7 @@ func move(dir : int):
 	t.tween_property(barrel, "rotation_degrees", barrel.rotation_degrees + space * dir, time)
 	can_move = false
 	t.connect("finished", reactivate)
-	
+	$Barrel2.play(0)
 	pos += dir
 	pos += bullets
 	pos %= bullets

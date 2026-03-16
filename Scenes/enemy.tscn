@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvux6yhlypkq1"]
+[gd_scene load_steps=12 format=3 uid="uid://dvux6yhlypkq1"]
 
 [ext_resource type="Script" uid="uid://ft8fqon6sls4" path="res://Scripts/enemy.gd" id="1_1f0kj"]
-[ext_resource type="Texture2D" uid="uid://61ebymaldqsd" path="res://Sprites/villain.png" id="2_afpow"]
+[ext_resource type="Texture2D" uid="uid://bfx62rwong5vx" path="res://Sprites/Enemy/Enemy.png" id="2_afpow"]
 [ext_resource type="AudioStream" uid="uid://cy7mm780nahaf" path="res://SFX/distance_shot.mp3" id="3_afpow"]
+[ext_resource type="Texture2D" uid="uid://dn6ltdolj1yh6" path="res://Sprites/Exclamation.png" id="4_287tu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxrlw"]
-radius = 22.0
-height = 184.0
+radius = 34.0
+height = 172.0
 
 [sub_resource type="Animation" id="Animation_afpow"]
 length = 0.001
@@ -21,6 +22,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Light:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1f0kj"]
@@ -38,20 +63,49 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_287tu"]
+resource_name = "shoot_position"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.58),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_287tu"]
 _data = {
 &"RESET": SubResource("Animation_afpow"),
-&"is_hurt": SubResource("Animation_1f0kj")
+&"is_hurt": SubResource("Animation_1f0kj"),
+&"shoot_position": SubResource("Animation_287tu")
 }
 
-[sub_resource type="Gradient" id="Gradient_1f0kj"]
+[sub_resource type="Gradient" id="Gradient_0830c"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_afpow"]
-gradient = SubResource("Gradient_1f0kj")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghaa6"]
+gradient = SubResource("Gradient_0830c")
 fill = 1
-fill_from = Vector2(0.51282054, 0.4871795)
-fill_to = Vector2(0.8247863, 0.1923077)
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
 
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_1f0kj")
@@ -59,24 +113,18 @@ script = ExtResource("1_1f0kj")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0.49999332, 2.9999962)
+scale = Vector2(9.105, 9.105)
 texture = ExtResource("2_afpow")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 31)
+position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_qxrlw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_287tu")
 }
-
-[node name="Shoot" type="TextureRect" parent="."]
-visible = false
-offset_left = -24.0
-offset_top = 9.0
-offset_right = 40.0
-offset_bottom = 73.0
-texture = SubResource("GradientTexture2D_afpow")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 8.0
@@ -88,6 +136,21 @@ text = "1"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_afpow")
+volume_db = -10.0
+
+[node name="Light" type="TextureRect" parent="."]
+offset_left = -40.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 44.0
+texture = SubResource("GradientTexture2D_ghaa6")
+
+[node name="Exclamation" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -111)
+scale = Vector2(11.72, 11.72)
+texture = ExtResource("4_287tu")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

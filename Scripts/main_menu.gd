@@ -1,6 +1,6 @@
 extends Control
 
-var game : PackedScene = preload("res://Scenes/game.tscn")
+const game = preload("uid://c4fq5ay7jxrdk")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
