@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://de3qvhs14yuad"]
+[gd_scene load_steps=5 format=3 uid="uid://de3qvhs14yuad"]
 
 [ext_resource type="Script" uid="uid://b0ao8loonwey3" path="res://Scripts/first_to_second.gd" id="1_tem2r"]
 [ext_resource type="PackedScene" uid="uid://dcedegb2s6cq0" path="res://Levels/second_level.tscn" id="2_31bxa"]
+[ext_resource type="Texture2D" uid="uid://dfimkmi3aalp4" path="res://Memes/bggold.png" id="3_nkcw3"]
+[ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="3_xrq0w"]
 
 [node name="FirstToSecond" type="Control"]
 layout_mode = 3
@@ -13,9 +15,27 @@ grow_vertical = 2
 script = ExtResource("1_tem2r")
 next_scene = ExtResource("2_31bxa")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -75.0
+offset_top = -70.0
+offset_right = 1205.0
+offset_bottom = 650.0
+texture = ExtResource("3_nkcw3")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "LOREDROP
-PRESS CLIC TO CONTINUE"
+offset_left = 26.0
+offset_top = 13.0
+offset_right = 1144.0
+offset_bottom = 1062.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_xrq0w")
+theme_override_font_sizes/font_size = 28
+text = "As soon as none of his teammates were able to stand (Oscar-worthy performances, in my opinion), the sheriff started to pursue me. Man, I love this immersive experience. Maybe they loved it so much that they want me to play along.
+
+I saw a gold factory around the corner. They were having trouble with the automatons over there—who better than a sheriff to step in and defend the weak with my Toy Gun™ (now nerfed to comply with the Geneva Convention, so I have to shoot twice in a row), which can only be wielded by the fiercest Rhythm Heaven Revolution Discord server mod?
+
+Click to proceed"
+autowrap_mode = 2

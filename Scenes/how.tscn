@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://7frlj2o475ip"]
 
-[ext_resource type="Script" uid="uid://df820x1rm1ibv" path="res://Scripts/how.gd" id="1_eosuk"]
+[ext_resource type="Script" uid="uid://di5fgjymb07ck" path="res://Scripts/how.gd" id="1_eosuk"]
 [ext_resource type="Texture2D" uid="uid://dv1xrusu87kjn" path="res://Assets/screen.png" id="1_fyrjs"]
 [ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="2_eosuk"]
 
@@ -44,5 +44,47 @@ size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_eosuk")
 theme_override_font_sizes/font_size = 25
 text = "Main Menu"
+
+[node name="Label" type="Label" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = 713.0
+offset_top = 430.0
+offset_right = 1159.0
+offset_bottom = 535.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_eosuk")
+theme_override_font_sizes/font_size = 25
+text = "Left button: shoot
+Mousewheel: change slot
+Right button: reload"
+
+[node name="Label2" type="Label" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = 39.0
+offset_top = 413.0
+offset_right = 485.0
+offset_bottom = 518.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_eosuk")
+theme_override_font_sizes/font_size = 25
+text = "Aim for this guy before
+ he aims to you"
+
+[node name="Label3" type="Label" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = 12.0
+offset_top = 535.0
+offset_right = 662.0
+offset_bottom = 640.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_eosuk")
+theme_override_font_sizes/font_size = 25
+text = "Carefull, you have 5 hits per scene"
 
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

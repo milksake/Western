@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6iayuihoigwb"]
+[gd_scene load_steps=5 format=3 uid="uid://b6iayuihoigwb"]
 
 [ext_resource type="Script" uid="uid://b0ao8loonwey3" path="res://Scripts/first_to_second.gd" id="1_8ftfx"]
 [ext_resource type="PackedScene" uid="uid://t3vvsdtbcb2b" path="res://Scenes/main_menu.tscn" id="2_alwig"]
+[ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="3_alwig"]
+[ext_resource type="Texture2D" uid="uid://h0p3m3gtw4yb" path="res://Memes/saul.jpg" id="3_dvfx6"]
 
 [node name="Ending" type="Control"]
 layout_mode = 3
@@ -13,9 +15,27 @@ grow_vertical = 2
 script = ExtResource("1_8ftfx")
 next_scene = ExtResource("2_alwig")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1160.0
+offset_bottom = 640.0
+texture = ExtResource("3_dvfx6")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "LOREDROP
-PRESS CLIC TO RETURN TO MAIN MENU"
+offset_left = 26.0
+offset_top = 13.0
+offset_right = 1144.0
+offset_bottom = 1062.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_alwig")
+theme_override_font_sizes/font_size = 28
+text = "Turns out my dad’s Toy Gun™ (copyrighted) was not a toy gun, but a normal gun. How was he able to lie to me like that? I can’t play with this—it doesn’t even have the word toy in it.
+
+The policemen explained that I had to call an attorney for Monday so I could be defended. Little do they know, my dad can hire the best lawyers in town. He’ll get me out of jail...
+
+No one can defeat Saul Goodman in a trial...
+
+Except for Satoru Gojo, of course."
+autowrap_mode = 2
