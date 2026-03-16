@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://5locnl8pon4"]
 
-[ext_resource type="Script" uid="uid://b0ao8loonwey3" path="res://Scripts/first_to_second.gd" id="1_4jj11"]
+[ext_resource type="Script" path="res://Scripts/first_to_second.gd" id="1_4jj11"]
 [ext_resource type="PackedScene" uid="uid://dv4o5775mj66v" path="res://Levels/third_level.tscn" id="2_glh1u"]
 [ext_resource type="Texture2D" uid="uid://cse1ou8nsedgx" path="res://Memes/Deltarune-Chapter-4-Rose.jpeg" id="3_51jxx"]
 [ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="3_sv8aw"]
@@ -33,10 +33,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_sv8aw")
 theme_override_font_sizes/font_size = 28
-text = "This took a *weird* route
-Once I took care of the rebel automatons, a group of fans tried to get my autograph or something. They were screaming “Killer!” since my performance was truly killer. Slay, I guess.
+text = "This took a *weird* route.
+Once I took care of the rebel automatons, a group of fans tried to get my autograph or something. They were screaming “Killer!” since my performance was truly killer.
 
-Now for my final act: I will help the one and only Samus Aran defend Earth from those aliens next to the bathroom (they have stench armor, so I have to shoot three times in a row now).
+Now for my final act: I will help the one and only Samus Aran defend Earth from those aliens next to the bathroom (i think they have stench armor or something, so I have to shoot three times in a row now).
 
-Clic to add 50 rupees to your bank account *only redeemable if you wishlist this game on steam*"
+Clic to add 50 rupees to your bank account (only redeemable if you wishlist this game on steam)."
 autowrap_mode = 2

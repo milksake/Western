@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6iayuihoigwb"]
 
-[ext_resource type="Script" uid="uid://b0ao8loonwey3" path="res://Scripts/first_to_second.gd" id="1_8ftfx"]
+[ext_resource type="Script" path="res://Scripts/first_to_second.gd" id="1_8ftfx"]
 [ext_resource type="PackedScene" uid="uid://t3vvsdtbcb2b" path="res://Scenes/main_menu.tscn" id="2_alwig"]
 [ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="3_alwig"]
 [ext_resource type="Texture2D" uid="uid://uajtluskal1c" path="res://Memes/bg.png" id="3_dvfx6"]
@@ -28,14 +28,14 @@ offset_top = 13.0
 offset_right = 1144.0
 offset_bottom = 1062.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("3_alwig")
 theme_override_font_sizes/font_size = 28
-text = "Turns out my dad’s Toy Gun™ (copyrighted) was not a toy gun, but a normal gun. How was he able to lie to me like that? I can’t play with this—it doesn’t even have the word toy in it.
+text = "Turns out my dad’s Toy Gun™ (copyrighted) was not a toy gun; it was real. How could he lie to me like that? I can’t play with this; it doesn’t even have the word toy on it.
 
-The policemen explained that I had to call an attorney for Monday so I could be defended. Little do they know, my dad can hire the best lawyers in town. He’ll get me out of jail...
+The policemen told me that I had to call an attorney by Monday so I could be defended. Little do they know, my dad can hire the best lawyers in town. He’ll get me out of jail.
 
-No one can defeat Saul Goodman’s number one fan in a trial...
+No one can defeat my blue-suited spiky-haired defense attorney in a trial... Except for a certain overpowered anime sorcerer, of course.
 
-Except for Satoru Gojo, of course."
+thanks for playing. click to return to main menu."
 autowrap_mode = 2

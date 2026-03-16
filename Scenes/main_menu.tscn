@@ -45,7 +45,7 @@ theme_override_constants/separation = 100
 layout_mode = 2
 theme_override_constants/outline_size = 50
 theme_override_fonts/font = ExtResource("3_ce3w2")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 90
 text = "KILLER SHERIFF
 PERFORMANCE"
 horizontal_alignment = 1

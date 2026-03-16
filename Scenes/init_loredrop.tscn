@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6a18u72g3mnp"]
+[gd_scene load_steps=5 format=3 uid="uid://b6a18u72g3mnp"]
 
-[ext_resource type="Script" uid="uid://b0ao8loonwey3" path="res://Scripts/first_to_second.gd" id="1_prahk"]
-[ext_resource type="Texture2D" uid="uid://cx7vmp3gtdb4t" path="res://Memes/shrek.jpg" id="2_pevu8"]
+[ext_resource type="Script" path="res://Scripts/first_to_second.gd" id="1_prahk"]
+[ext_resource type="PackedScene" uid="uid://c4fq5ay7jxrdk" path="res://Levels/first_level.tscn" id="2_klipi"]
+[ext_resource type="Texture2D" uid="uid://dxc2vndhcdtjy" path="res://Assets/image.png" id="2_pevu8"]
 [ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="2_sjm1s"]
 
 [node name="InitLoredrop" type="Control"]
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_prahk")
+next_scene = ExtResource("2_klipi")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -28,12 +30,12 @@ offset_top = 13.0
 offset_right = 1144.0
 offset_bottom = 1062.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_sjm1s")
 theme_override_font_sizes/font_size = 37
-text = "Once upon a time, a huge fan of Rhythm Heaven got into a Comic-Con. He grabbed his “toy gun” from his dad; he never really understood why a real police officer would use something like that.
-So he went to the Wild West stand and pretended to shoot his partners to the rhythm of a song only he could hear.
+text = "Once upon a time, a huge fan of Rhythm Heaven went to Comic-Con. He grabbed his “toy gun” from his dad; he never really understood why a real police officer would use something like that.
+He went to the Wild West stand and pretended to shoot cowboys to the rhythm of a song only he could hear.
 Little did he know...
 
-Press click to continue"
+Press click to continue."
 autowrap_mode = 2

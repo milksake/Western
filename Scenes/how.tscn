@@ -48,17 +48,44 @@ text = "Main Menu"
 [node name="Label" type="Label" parent="."]
 z_index = 100
 layout_mode = 0
-offset_left = 713.0
-offset_top = 430.0
-offset_right = 1159.0
-offset_bottom = 535.0
+offset_left = 746.0
+offset_top = 336.0
+offset_right = 1192.0
+offset_bottom = 477.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_eosuk")
 theme_override_font_sizes/font_size = 25
-text = "Left button: shoot
-Mousewheel: change slot
-Right button: reload"
+text = "Left click: shoot
+Mousewheel
+or WASD:  change slot
+Right click: reload"
+
+[node name="Label6" type="Label" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = 209.0
+offset_top = 271.0
+offset_right = 906.0
+offset_bottom = 412.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_eosuk")
+theme_override_font_sizes/font_size = 25
+text = "Shooting an enemy resets the counter"
+
+[node name="Label7" type="Label" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = 614.0
+offset_top = 589.0
+offset_right = 1311.0
+offset_bottom = 730.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_eosuk")
+theme_override_font_sizes/font_size = 25
+text = "your bullets are here"
 
 [node name="Label2" type="Label" parent="."]
 z_index = 100
@@ -71,20 +98,48 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_eosuk")
 theme_override_font_sizes/font_size = 25
-text = "Aim for this guy before
- he aims to you"
+text = "Aim with the mouse and shoot
+enemies before they shoot you"
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label4" type="Label" parent="."]
 z_index = 100
 layout_mode = 0
-offset_left = 12.0
-offset_top = 535.0
-offset_right = 662.0
-offset_bottom = 640.0
+offset_left = 135.0
+offset_top = 200.0
+offset_right = 1391.0
+offset_bottom = 305.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_eosuk")
 theme_override_font_sizes/font_size = 25
-text = "Carefull, you have 5 hits per scene"
+text = "This number shows the beats remaining
+until an enemy shoots at you"
+
+[node name="Label5" type="Label" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = 242.0
+offset_top = 71.0
+offset_right = 1498.0
+offset_bottom = 176.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_eosuk")
+theme_override_font_sizes/font_size = 25
+text = "Shooting and reloading have
+to be done on the beat!"
+
+[node name="Label3" type="Label" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = 11.0
+offset_top = 521.0
+offset_right = 661.0
+offset_bottom = 626.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_eosuk")
+theme_override_font_sizes/font_size = 25
+text = "You can take at most 5 hits"
 
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
