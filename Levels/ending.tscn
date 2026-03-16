@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b0ao8loonwey3" path="res://Scripts/first_to_second.gd" id="1_8ftfx"]
 [ext_resource type="PackedScene" uid="uid://t3vvsdtbcb2b" path="res://Scenes/main_menu.tscn" id="2_alwig"]
 [ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="3_alwig"]
-[ext_resource type="Texture2D" uid="uid://h0p3m3gtw4yb" path="res://Memes/saul.jpg" id="3_dvfx6"]
+[ext_resource type="Texture2D" uid="uid://uajtluskal1c" path="res://Memes/bg.png" id="3_dvfx6"]
 
 [node name="Ending" type="Control"]
 layout_mode = 3
@@ -35,7 +35,7 @@ text = "Turns out my dad’s Toy Gun™ (copyrighted) was not a toy gun, but a n
 
 The policemen explained that I had to call an attorney for Monday so I could be defended. Little do they know, my dad can hire the best lawyers in town. He’ll get me out of jail...
 
-No one can defeat Saul Goodman in a trial...
+No one can defeat Saul Goodman’s number one fan in a trial...
 
 Except for Satoru Gojo, of course."
 autowrap_mode = 2
