@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=4 uid="uid://c4fq5ay7jxrdk"]
 
-[ext_resource type="Script" uid="uid://2bqvugtkvil7" path="res://Scripts/level.gd" id="1_1oe6y"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_1oe6y"]
 [ext_resource type="Texture2D" uid="uid://c8w4do12trcmq" path="res://Sprites/Tileset/Yeehaw/yeehaw_tileset_standard.png" id="1_rcd6d"]
 [ext_resource type="Texture2D" uid="uid://iyt6x2hhkpwg" path="res://Sprites/Tileset/sandi.png" id="2_cf32u"]
 [ext_resource type="PackedScene" uid="uid://de3qvhs14yuad" path="res://Levels/first_to_second.tscn" id="2_jn6s3"]
@@ -658,8 +658,9 @@ offset_top = 16.0
 offset_right = 186.0
 offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("11_spvbh")
+theme_override_font_sizes/font_size = 25
 text = "Enemies left: 0"
 
 [node name="Label2" type="Label" parent="."]

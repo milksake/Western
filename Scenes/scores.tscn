@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dql1h0c1r17pf"]
+[gd_scene load_steps=5 format=3 uid="uid://dql1h0c1r17pf"]
 
 [ext_resource type="Script" uid="uid://biqxvloovhrfm" path="res://Scripts/scores.gd" id="1_hdn7m"]
+[ext_resource type="Texture2D" uid="uid://dxc2vndhcdtjy" path="res://Assets/image.png" id="2_7gtja"]
+[ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="3_qe3lj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iyxq5"]
+texture = ExtResource("2_7gtja")
 
 [node name="Scores" type="Control"]
 layout_mode = 3
@@ -10,6 +15,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hdn7m")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iyxq5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -29,39 +43,46 @@ theme_override_constants/separation = 100
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("3_qe3lj")
 theme_override_font_sizes/font_size = 100
-text = "High Scores"
+text = "Select Level"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 500
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 25
-columns = 2
+columns = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Lvl1" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Name"
+theme_override_fonts/font = ExtResource("3_qe3lj")
+theme_override_font_sizes/font_size = 20
+text = "Level 1"
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Lvl2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Score"
+theme_override_fonts/font = ExtResource("3_qe3lj")
+theme_override_font_sizes/font_size = 20
+text = "Level 2"
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Lvl3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "ABC"
-
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "100"
+theme_override_fonts/font = ExtResource("3_qe3lj")
+theme_override_font_sizes/font_size = 20
+text = "Level 3"
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("3_qe3lj")
+theme_override_font_sizes/font_size = 25
 text = "Main Menu"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Lvl1" to="." method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Lvl2" to="." method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Lvl3" to="." method="_on_lvl_3_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

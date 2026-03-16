@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvux6yhlypkq1"]
+[gd_scene load_steps=13 format=3 uid="uid://dvux6yhlypkq1"]
 
 [ext_resource type="Script" uid="uid://ft8fqon6sls4" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://bfx62rwong5vx" path="res://Sprites/Enemy/Enemy.png" id="2_afpow"]
+[ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="3_0830c"]
 [ext_resource type="AudioStream" uid="uid://cy7mm780nahaf" path="res://SFX/distance_shot.mp3" id="3_afpow"]
 [ext_resource type="Texture2D" uid="uid://dn6ltdolj1yh6" path="res://Sprites/Exclamation.png" id="4_287tu"]
 
@@ -131,10 +132,11 @@ offset_left = 8.0
 offset_top = -96.0
 offset_right = 48.0
 offset_bottom = -51.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_0830c")
 theme_override_font_sizes/font_size = 32
-text = "1"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_afpow")
 volume_db = -10.0
 

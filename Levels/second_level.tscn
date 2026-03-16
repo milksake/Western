@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=4 uid="uid://dcedegb2s6cq0"]
 
 [ext_resource type="Texture2D" uid="uid://bhrk1p2h0voqs" path="res://Sprites/Tileset/ToyZone/Tiles/ToyZone_tileset_A_altcolors.png" id="1_5y0a0"]
-[ext_resource type="Script" uid="uid://2bqvugtkvil7" path="res://Scripts/level.gd" id="1_a482q"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_a482q"]
 [ext_resource type="PackedScene" uid="uid://5locnl8pon4" path="res://Levels/second_to_third.tscn" id="2_1sylk"]
 [ext_resource type="Texture2D" uid="uid://0jr20tnl4o0r" path="res://Sprites/Tileset/Gold/goldold.png" id="2_n7bll"]
 [ext_resource type="PackedScene" uid="uid://bf1pulsdnklvs" path="res://Scenes/reload.tscn" id="4_3jude"]
@@ -847,8 +847,9 @@ offset_top = 16.0
 offset_right = 186.0
 offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("10_76i8v")
+theme_override_font_sizes/font_size = 25
 text = "Enemies left: 0"
 
 [node name="Label2" type="Label" parent="."]

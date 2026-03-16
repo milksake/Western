@@ -35,7 +35,7 @@ func beat():
 		return
 
 
-	$Label.text = str(current_beat)
+	$Label.text = str(attack_on_beat - current_beat)
 
 	if attack_on_beat - current_beat == 2:
 		$Exclamation.visible = true
@@ -72,7 +72,7 @@ func take_damage(damage: int):
 		sprite_2d.modulate = Color.WHITE
 		
 		current_beat = 1
-		$Label.text = str(current_beat)
+		$Label.text = str(attack_on_beat - current_beat)
 		
 		if check_if_dead():
 			is_shot.emit(points)

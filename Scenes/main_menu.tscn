@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://t3vvsdtbcb2b"]
+[gd_scene load_steps=5 format=3 uid="uid://t3vvsdtbcb2b"]
 
 [ext_resource type="Script" uid="uid://bjpp7roktwbvs" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://dxc2vndhcdtjy" path="res://Assets/image.png" id="2_1ehe0"]
+[ext_resource type="FontFile" uid="uid://o0dqgj27fls8" path="res://Fonts/retro_computer_personal_use.ttf" id="3_ce3w2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n45e2"]
+texture = ExtResource("2_1ehe0")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +15,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n45e2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -29,6 +43,8 @@ theme_override_constants/separation = 100
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 100
 text = "Western Game"
 horizontal_alignment = 1
@@ -40,21 +56,30 @@ theme_override_constants/separation = 20
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 25
 text = "Play
 "
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 25
-text = "High Scores
-"
+text = "Select Level"
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 25
+text = "HOW TO PLAY"
 
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ce3w2")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

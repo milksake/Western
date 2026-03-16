@@ -2,9 +2,9 @@ extends Node2D
 class_name Rhythm
 
 @export var bpm : float = 110
-@export var off : float = 0.32
-@export var window_ok : float = 0.1
-@export var window_great : float = 0.045
+@export var off : float = 0.35
+@export var window_ok : float = 0.12
+@export var window_great : float = 0.06
 @onready var beatDuration = 60.0 / bpm
 
 signal beat
